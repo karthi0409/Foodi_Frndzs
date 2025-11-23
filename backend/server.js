@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
 app.use(
     cors({
         origin: (origin, callback) => {
-            const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+            const allowedOrigins = ['https://foodifrndzs-frontend.onrender.com', 'https://foodi-frndzs-admin.onrender.com/orders'];
             if (!origin || allowedOrigins.includes(origin)) {
                 callback(null, true);
             } else {
