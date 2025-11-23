@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     axios
-      .get('http://localhost:4000/api/cart', {
+      .get('https://foodifrndzs-backend.onrender.com/api/cart', {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -83,7 +83,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     const res = await axios.post(
-      'http://localhost:4000/api/cart',
+      'https://foodifrndzs-backend.onrender.com/api/cart',
       { itemId: item._id, quantity: qty },
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     );
@@ -103,7 +103,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     const res = await axios.put(
-      `http://localhost:4000/api/cart/${_id}`,
+      `https://foodifrndzs-backend.onrender.com/api/cart/${_id}`,
       { quantity: qty },
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     );
@@ -118,7 +118,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = useCallback(async _id => {
     const token = localStorage.getItem('authToken');
 
-    await axios.delete(`http://localhost:4000/api/cart/${_id}`, {
+    await axios.delete(`https://foodifrndzs-backend.onrender.com/api/cart/${_id}`, {
       withCredentials: true,
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -131,7 +131,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     await axios.post(
-      'http://localhost:4000/api/cart/clear',
+      'https://foodifrndzs-backend.onrender.com/api/cart/clear',
       {},
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     );

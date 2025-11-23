@@ -13,7 +13,7 @@ const UserOrdersPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api/orders', {
+        const response = await axios.get('https://foodifrndzs-backend.onrender.com/api/orders', {
           params: { email: user?.email },
           headers: {
             Authorization: `Bearer ${localStorage.getItem('authToken')}`
@@ -202,7 +202,7 @@ const UserOrdersPage = () => {
                               className="flex items-center gap-3 p-2 bg-[#3a2b2b]/50 rounded-lg"
                             >
                               <img
-                                src={`http://localhost:4000${item.item.imageUrl}`}
+                                src={`https://foodifrndzs-backend.onrender.com${item.item.imageUrl}`}
                                 alt={item.item.name}
                                 className="w-10 h-10 object-cover rounded-lg"
                               />
