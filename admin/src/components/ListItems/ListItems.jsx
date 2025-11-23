@@ -13,7 +13,7 @@ const ListItems = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const { data } = await axios.get('http://localhost:4000/api/items');
+        const { data } = await axios.get('https://foodifrndzs-backend.onrender.com/api/items');
         setItems(data);
       } catch (err) {
         console.error('Error fetching items:', err);
