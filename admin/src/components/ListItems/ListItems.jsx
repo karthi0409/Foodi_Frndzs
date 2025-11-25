@@ -28,7 +28,7 @@ const ListItems = () => {
   const handleDelete = async (itemId) => {
     if (!window.confirm('Are you sure you want to delete this item?')) return;
     try {
-      await axios.delete(`http://localhost:4000/api/items/${itemId}`);
+      await axios.delete(`https://foodifrndzs-backend.onrender.com/api/items/${itemId}`);
       setItems(prev => prev.filter(item => item._id !== itemId));
       console.log('Deleted item ID:', itemId);
     } catch (err) {
