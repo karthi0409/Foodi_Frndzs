@@ -1,9 +1,17 @@
+// backend/config/db.js
 import mongoose from "mongoose";
+import 'dotenv/config';
 
 export const connectDB = async () => {
-    await mongoose.connect('mongodb+srv://kkcuteheart143:foodi123@cluster0.v47poff.mongodb.net/Foodi_Frndzs')
-        .then(() => console.log('Data Base CONNECTED'));
-}
+    try {
+        await mongoose.connect(process.env.MONGODB_URL);
+        console.log('Database CONNECTED');
+    } catch (error) {
+        console.error('DB CONNECTION ERROR:', error);
+        process.exit(1);
+    }
+};
+
 
 // STEPS TO GET YOUR MONGODB ATLAS USERNAME & PASSWORD:
 //
