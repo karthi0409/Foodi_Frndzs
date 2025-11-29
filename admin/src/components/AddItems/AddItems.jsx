@@ -8,6 +8,7 @@ import { styles } from '../../assets/dummyadmin';
 
 const AddItems = () => {
   const [formData, setFormData] = useState({
+    
     name: '',
     description: '',
     category: '',
