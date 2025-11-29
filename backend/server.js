@@ -1,26 +1,17 @@
 import express from 'express'
 import cors from 'cors'
 import 'dotenv/config'
+import { connectDB } from './config/db.js'
+
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { v2 as cloudinary } from "cloudinary";
-import multer from "multer";
-import streamifier from "streamifier";
-import { connectDB } from './config/db.js'
+
 import userRouter from './routes/userRoute.js'
 import cartRouter from './routes/cartRoute.js'
 import itemRouter from './routes/itemRoute.js';
 import orderRouter from './routes/orderRoute.js';
 
 const app = express();
-
-cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.CLOUD_KEY,
-  api_secret: process.env.CLOUD_SECRET,
-});
-
-const upload = multer({ storage: multer.memoryStorage() });
 const port = process.env.PORT || 4000;
 
 const __filename = fileURLToPath(import.meta.url);
