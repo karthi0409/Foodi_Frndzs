@@ -23,7 +23,11 @@ const __dirname = path.dirname(__filename);
 app.use(
     cors({
         origin: (origin, callback) => {
-            const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+            const allowedOrigins = [
+    'https://foodifrndzs-frontend.onrender.com',
+    'http://localhost:5173',
+    'http://localhost:5174'
+];
             // allow non-browser clients (no origin) and any localhost/127.0.0.1 with any port
             if (!origin) return callback(null, true);
             const isLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
