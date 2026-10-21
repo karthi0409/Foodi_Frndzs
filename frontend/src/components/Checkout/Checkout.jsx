@@ -18,8 +18,10 @@ const CheckoutPage = () => {
   const [error, setError] = useState(null);
 
   // Grab token from localStorage
-  const token = localStorage.getItem('authToken');
-  const authHeaders = token ? { Authorization: `Bearer ${token}` } : {};
+    const token = localStorage.getItem('authToken');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const authHeaders = token ? { Authorization: `Bearer ${token}` } : {};
+
 
   // Handle redirect back from payment gateway
   useEffect(() => {
@@ -32,7 +34,7 @@ const CheckoutPage = () => {
       if (paymentStatus === 'success' && sessionId) {
         // Confirm the payment and create order on the backend
         axios.post(
-          'https://foodifrndzs-backend.onrender.com/api/orders/confirm',
+          'http://localhost:4000/api/orders/confirm',
           { sessionId },
           { headers: authHeaders }
         )
@@ -85,7 +87,7 @@ const CheckoutPage = () => {
       if (formData.paymentMethod === 'online') {
         // Initiate payment session; do NOT create order or clear cart yet
         const { data } = await axios.post(
-          'https://foodifrndzs-backend.onrender.com/api/orders',
+          'http://localhost:4000/api/orders',
           payload,
           { headers: authHeaders }
         );
@@ -94,7 +96,7 @@ const CheckoutPage = () => {
       } else {
         // Cash on Delivery: directly create order
         const { data } = await axios.post(
-          'https://foodifrndzs-backend.onrender.com/api/orders',
+          'http://localhost:4000/api/orders',
           payload,
           { headers: authHeaders }
         );

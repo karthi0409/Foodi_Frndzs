@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import AboutImage from "../../assets/AboutImage.png";
 import './AboutHome.css';
 import FloatingParticle from '../FloatingParticle/FloatingParticle';
-import { aboutfeature } from '../../assets/dummyMenuData';
+import { aboutfeature } from '../../assets/dummyMenuData.js';
 
 
 const AboutHome = () => (

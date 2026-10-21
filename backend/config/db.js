@@ -1,17 +1,19 @@
-// backend/config/db.js
 import mongoose from "mongoose";
-import 'dotenv/config';
+import "dotenv/config";
+
+const mongoURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/foodiefrindzs";
 
 export const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URL);
-        console.log('Database CONNECTED');
-    } catch (error) {
-        console.error('DB CONNECTION ERROR:', error);
-        process.exit(1);
+        await mongoose.connect(mongoURI, {
+            serverSelectionTimeoutMS: 10000,
+        });
+        console.log('DB CONNECTED');
+    } catch (err) {
+        console.error('DB CONNECTION ERROR:', err.message);
+        console.log('Set MONGO_URI in backend/.env or start a local MongoDB instance.');
     }
 };
-
 
 // STEPS TO GET YOUR MONGODB ATLAS USERNAME & PASSWORD:
 //

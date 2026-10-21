@@ -11,6 +11,7 @@ const VerifyPaymentPage = () => {
 
     // Grab token from localStorage
     const token = localStorage.getItem('authToken');
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const authHeaders = token ? { Authorization: `Bearer ${token}` } : {};
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const VerifyPaymentPage = () => {
         }
 
         // Stripe says success=true & we have a session_id:
-        axios.get('https://foodifrndzs-backend.onrender.com/api/orders/confirm', {
+        axios.get('http://localhost:4000/api/orders/confirm', {
             params: { session_id },
             headers: authHeaders
         })

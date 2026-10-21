@@ -1,6 +1,6 @@
 import userModel from "../modals/userModel.js";
 import jwt from 'jsonwebtoken'
-import bycrypt from 'bcryptjs'
+import bycrypt from 'bcrypt'
 import validator from 'validator'
 
 // LOGIN USER

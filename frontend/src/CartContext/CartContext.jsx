@@ -1,7 +1,7 @@
 /* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useReducer, useEffect, useCallback } from 'react';
 import axios from 'axios';
-
+//import { useCart } from "../context/CartContext";
 // (adjust ../../ path depending on file location)
 
 const CartContext = createContext();
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     axios
-      .get('https://foodifrndzs-backend.onrender.com/api/cart', {
+      .get('http://localhost:4000/api/cart', {
         withCredentials: true,
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -83,7 +83,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     const res = await axios.post(
-      'https://foodifrndzs-backend.onrender.com/api/cart',
+      'http://localhost:4000/api/cart',
       { itemId: item._id, quantity: qty },
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     );
@@ -103,7 +103,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     const res = await axios.put(
-      `https://foodifrndzs-backend.onrender.com/api/cart/${_id}`,
+      `http://localhost:4000/api/cart/${_id}`,
       { quantity: qty },
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     );
@@ -118,7 +118,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = useCallback(async _id => {
     const token = localStorage.getItem('authToken');
 
-    await axios.delete(`https://foodifrndzs-backend.onrender.com/api/cart/${_id}`, {
+    await axios.delete(`http://localhost:4000/api/cart/${_id}`, {
       withCredentials: true,
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -131,7 +131,7 @@ export const CartProvider = ({ children }) => {
     const token = localStorage.getItem('authToken');
 
     await axios.post(
-      'https://foodifrndzs-backend.onrender.com/api/cart/clear',
+      'http://localhost:4000/api/cart/clear',
       {},
       { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
     );

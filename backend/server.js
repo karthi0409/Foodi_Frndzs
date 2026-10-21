@@ -1,14 +1,14 @@
-// backend/server.js
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
-import { connectDB } from './config/db.js';
+// ...existing code...
+import express from 'express'
+import cors from 'cors'
+import 'dotenv/config'
+import { connectDB } from './config/db.js'
 
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import userRouter from './routes/userRoute.js';
-import cartRouter from './routes/cartRoute.js';
+import userRouter from './routes/userRoute.js'
+import cartRouter from './routes/cartRoute.js'
 import itemRouter from './routes/itemRoute.js';
 import orderRouter from './routes/orderRoute.js';
 
@@ -19,33 +19,40 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // MIDDLEWARE
-const allowedOrigins = [
-    process.env.FRONTEND_URL,
-    'https://foodifrndzs-admin.onrender.com'
-];
-
-app.use(cors({
-    origin: allowedOrigins,
-    credentials: true,
-}));
+app.use(
+    cors({
+        origin: (origin, callback) => {
+            const allowedOrigins = ['http://localhost:5173', 'http://localhost:5174'];
+            // allow non-browser clients (no origin) and any localhost/127.0.0.1 with any port
+            if (!origin) return callback(null, true);
+            const isLocalhost = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
+            if (allowedOrigins.includes(origin) || isLocalhost) {
+                return callback(null, true);
+            }
+            return callback(new Error('Not allowed by CORS'));
+        },
+        credentials: true,
+    })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
+// DB CONNECT
 connectDB();
 
 // Routes
-app.use('/api/user', userRouter);
+app.use('/api/user', userRouter)
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-app.use('/api/cart', cartRouter);
+app.use('/api/cart', cartRouter)
 app.use('/api/items', itemRouter);
 app.use('/api/orders', orderRouter);
 
 app.get('/', (req, res) => {
     res.send('API WORKING');
-});
+})
 
 app.listen(port, () => {
-    console.log(`Server Started on http://localhost:${port}`);
-});
+    console.log(`Server Started on http://localhost:${port}`)
+})
+// ...existing code...

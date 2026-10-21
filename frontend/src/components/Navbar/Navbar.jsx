@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+
+
 import {
   FiHome,
   FiBook,
@@ -110,7 +112,8 @@ const Navbar = () => {
 
       <div className="max-w-7xl mx-auto px-4 relative">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Logo Section */}
+
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center space-x-2 group">
             <GiChefToque className="text-2xl md:text-3xl lg:text-4xl text-amber-500 transition-all group-hover:rotate-12" />
             <div className="flex flex-col ml-1 md:ml-2">
@@ -139,23 +142,24 @@ const Navbar = () => {
                 <span className="text-amber-100">{link.name}</span>
               </NavLink>
             ))}
+
             <div className="flex items-center space-x-2 xl:space-x-4 ml-2 xl:ml-4">
+              {/* Desktop Cart Badge Updated */}
               <NavLink
                 to="/cart"
                 className="p-2 relative text-amber-100 hover:text-amber-300 transition-colors"
               >
                 <FiShoppingCart className="text-lg xl:text-xl" />
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-amber-600 text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                    {totalItems}
-                  </span>
-                )}
+                <span className="absolute -top-1 -right-1 bg-amber-600 text-[10px] px-1.5 py-0.5 rounded-full flex items-center justify-center">
+                  {totalItems === 0 ? "Empty" : totalItems}
+                </span>
               </NavLink>
+
               {renderDesktopAuthButton()}
             </div>
           </div>
 
-          {/* Hamburger Menu Button */}
+          {/* Hamburg Menu */}
           <div className="lg:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -168,13 +172,15 @@ const Navbar = () => {
               </div>
             </button>
           </div>
+
         </div>
       </div>
 
-      {/* Mobile/Tablet Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="lg:hidden bg-[#2D1B0E] border-t-4 border-amber-900/40">
           <div className="px-4 py-4 space-y-3">
+
             {navLinks.map((link) => (
               <NavLink
                 key={link.name}
@@ -190,7 +196,10 @@ const Navbar = () => {
                 <span>{link.name}</span>
               </NavLink>
             ))}
+
             <div className="pt-4 border-t border-amber-900/40 space-y-3">
+
+              {/* Mobile Cart Badge Updated */}
               <NavLink
                 to="/cart"
                 onClick={() => setIsOpen(false)}
@@ -198,12 +207,11 @@ const Navbar = () => {
               >
                 <FiShoppingCart />
                 <span>Cart</span>
-                {totalItems > 0 && (
-                  <span className="bg-amber-600 text-xs px-2 py-1 rounded-full">
-                    {totalItems}
-                  </span>
-                )}
+                <span className="bg-amber-600 text-xs px-2 py-1 rounded-full">
+                  {totalItems === 0 ? "Empty" : totalItems}
+                </span>
               </NavLink>
+
               {renderMobileAuthButton()}
             </div>
           </div>
@@ -221,7 +229,7 @@ const Navbar = () => {
               &times;
             </button>
             <h2 className="text-3xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent mb-6 text-center">
-              Foodie-Frenzy
+              Foodie-Frndzs
             </h2>
             <Login onLoginSuccess={handleLoginSuccess} onClose={() => navigate('/')} />
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaSearch, FaDownload, FaPlay, FaTimes } from 'react-icons/fa';
-import { bannerAssets } from '../../assets/dummyMenuData';
+import { bannerAssets } from '../../assets/dummyMenuData.js';
 import "../../index.css";
 
 const Banner = () => {

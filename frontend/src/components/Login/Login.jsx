@@ -11,9 +11,9 @@ import {
   FaEyeSlash,
   FaCheckCircle,
 } from 'react-icons/fa';
-import { inputBase, iconClass } from '../../assets/dummyMenuData';
+import { inputBase, iconClass } from '../../assets/dummyMenuData.js';
 
-const url = 'https://foodifrndzs-backend.onrender.com'
+const url = 'http://localhost:4000'
 
 const Login = ({ onLoginSuccess, onClose }) => {
   const [formData, setFormData] = useState({

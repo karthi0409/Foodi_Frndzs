@@ -63,31 +63,62 @@ const getPaymentMethodDetails = (method) => {
     }
 };
 
-<tr>
-    <th className="p-4 text-left text-amber-400">Order ID</th>
-    <th className="p-4 text-left text-amber-400">Customer</th>
-    <th className="p-4 text-left text-amber-400">Address</th>
-    <th className="p-4 text-left text-amber-400">Items</th>
-    <th className="p-4 text-left text-amber-400">Total Items</th>
-    <th className="p-4 text-left text-amber-400">Price</th>
-    <th className="p-4 text-left text-amber-400">Payment</th>
-    <th className="p-4 text-left text-amber-400">Status</th>
-</tr>
+export default function DummyAdmin() {
+    // local placeholders/stubs to prevent parsing/runtime errors while keeping structure intact
+    const orders = []; // replace with real orders when available
+    const navLinks = []; // replace with real navLinks when available
+    const totalItems = 0;
+    let isOpen = false;
+    const setIsOpen = () => {};
+    const renderDesktopAuthButton = () => null;
+    const renderMobileAuthButton = () => null;
+    const showLoginModal = false;
+    const navigate = () => {};
+    const Login = () => null;
+    const handleLoginSuccess = () => {};
 
-{
-    orders.map((order) => {
-        const totalItems = order.items.reduce((sum, item) => sum + item.quantity, 0);
-        const totalPrice = order.total ?? order.items.reduce(
-            (sum, item) => sum + (item.item.price * item.quantity),
-            0
-        );
-        const paymentMethod = getPaymentMethodDetails(order.paymentMethod);
-        const status = statusStyles[order.status] || statusStyles.processing;
-        const paymentStatus = statusStyles[order.paymentStatus] || statusStyles.pending;
+    return (
+        <>
+            <tr>
+                <th className="p-4 text-left text-amber-400">Order ID</th>
+                <th className="p-4 text-left text-amber-400">Customer</th>
+                <th className="p-4 text-left text-amber-400">Address</th>
+                <th className="p-4 text-left text-amber-400">Items</th>
+                <th className="p-4 text-left text-amber-400">Total Items</th>
+                <th className="p-4 text-left text-amber-400">Price</th>
+                <th className="p-4 text-left text-amber-400">Payment</th>
+                <th className="p-4 text-left text-amber-400">Status</th>
+            </tr>
 
+            {
+                // safe map implementation to avoid malformed syntax
+                orders.map((order) => {
+                    const totalItems = order?.items?.reduce((sum, item) => sum + (item.quantity || 0), 0) || 0;
+                    const totalPrice = order?.total ?? (order?.items?.reduce(
+                        (sum, item) => sum + ((item?.item?.price || 0) * (item?.quantity || 0)),
+                        0
+                    ) || 0);
 
-        // NAVBAR COPY TO SAVE TIME
-        return (
+                    const paymentMethod = getPaymentMethodDetails(order?.paymentMethod || '');
+                    const status = statusStyles[order?.status] || statusStyles.processing;
+                    // const paymentStatus = statusStyles[order?.paymentStatus] || statusStyles.pending;
+
+                    return (
+                        <tr key={order?.id || Math.random()}>
+                            <td className="p-4 text-amber-100">{order?.id}</td>
+                            <td className="p-4 text-amber-100">{order?.customerName}</td>
+                            <td className="p-4 text-amber-100">{order?.address}</td>
+                            <td className="p-4 text-amber-100">{order?.items?.length || 0}</td>
+                            <td className="p-4 text-amber-100">{totalItems}</td>
+                            <td className="p-4 text-amber-100">{totalPrice}</td>
+                            <td className={`p-4 ${paymentMethod.class}`}>{paymentMethod.label}</td>
+                            <td className="p-4 text-amber-100">{status.label}</td>
+                        </tr>
+                    );
+                })
+            }
+
+            {/* NAVBAR COPY TO SAVE TIME */}
             <nav className="bg-[#2D1B0E] border-b-8 border-amber-900/40 shadow-[0_25px_50px_-12px] shadow-amber-900/30 sticky top-0 z-50 font-vibes">
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-full max-w-7xl px-4">
                     <div className="h-[6px] bg-gradient-to-r from-transparent via-amber-600/50 to-transparent shadow-[0_0_20px] shadow-amber-500/30"></div>
@@ -216,4 +247,6 @@ const getPaymentMethodDetails = (method) => {
                     </div>
                 )}
             </nav>
-        );
+        </>
+    );
+}

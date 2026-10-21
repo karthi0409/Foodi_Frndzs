@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { FiMapPin, FiPhone, FiMail, FiMessageSquare, FiGlobe, FiSmartphone, FiHome, FiArrowRight } from 'react-icons/fi';
 import toast, { Toaster } from 'react-hot-toast';
-import { contactFormFields } from '../../assets/dummyMenuData';
-
-// ...existing code...
+import { contactFormFields } from '../../assets/dummyMenuData.js'
 
 const Contact = () => {
   const [formData, setFormData] = useState({

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { FiTruck, FiCheckCircle, FiClock, FiArrowLeft, FiUser, FiMapPin, FiBox } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useCart } from '../../CartContext/CartContext';
 
 const UserOrdersPage = () => {
   const [orders, setOrders] = useState([]);
-  const [_loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const user = JSON.parse(localStorage.getItem('user'));
@@ -13,7 +14,7 @@ const UserOrdersPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get('https://foodifrndzs-backend.onrender.com/api/orders', {
+        const response = await axios.get('http://localhost:4000/api/orders', {
           params: { email: user?.email },
           headers: {
             Authorization: `Bearer ${localStorage.getItem('authToken')}`
@@ -202,7 +203,7 @@ const UserOrdersPage = () => {
                               className="flex items-center gap-3 p-2 bg-[#3a2b2b]/50 rounded-lg"
                             >
                               <img
-                                src={`https://foodifrndzs-backend.onrender.com${item.item.imageUrl}`}
+                                src={`http://localhost:4000${item.item.imageUrl}`}
                                 alt={item.item.name}
                                 className="w-10 h-10 object-cover rounded-lg"
                               />

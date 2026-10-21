@@ -4,7 +4,6 @@ import { FaFacebook, FaInstagram, FaXTwitter, FaYoutube } from 'react-icons/fa6'
 import { FiUser, FiSmartphone, FiMail, FiHome } from 'react-icons/fi';
 import { FaUtensils } from 'react-icons/fa';
 import { GiChefToque, GiFoodTruck } from 'react-icons/gi';
-
 import IA1 from './IA1.png';
 import IA2 from './IA2.png';
 import IA3 from './IA3.png';
@@ -82,7 +81,7 @@ export const stats = [
 
 export const teamMembers = [
     {
-        name: "Dhaneesh Kumar",
+        name: "DHANEESH KUMAR",
         role: "Executive Chef",
         img: IA4,
         bio: "3 Michelin stars | Italian cuisine specialist",
@@ -95,7 +94,7 @@ export const teamMembers = [
         },
     },
     {
-        name: "Kishore Kumar",
+        name: "KARTHIKEYAN K",
         role: "Pastry Chef",
         img: IA5,
         bio: "World Baking Champion | French desserts expert",
@@ -108,7 +107,7 @@ export const teamMembers = [
         },
     },
     {
-        name: "Karthikeyan",
+        name: "KISHORE KUMAR",
         role: "Sushi Chef",
         img: IA6,
         bio: "5th generation sushi chef | Traditional techniques",
@@ -132,23 +131,23 @@ export const aboutfeature = [
 
 // SPECIAL MENU
 export const cardData = [
-    { id: 1, title: 'Kebab', rating: 4.5, hearts: 105, description: 'Juicy grilled meat with authentic spices', image: Kebab, popular: true, price: '₹40' },
-    { id: 2, title: 'Chicken Tikka', rating: 5.0, hearts: 155, description: 'Tender chicken marinated in sauce', image: ChickenTikka, bestseller: true, price: '₹140' },
-    { id: 3, title: 'Desi Chowmein', rating: 4.2, hearts: 85, description: 'Spicy Asian noodles with a local twist', image: DesiChowmein, price: '₹60' },
-    { id: 4, title: 'Chicken Chargha', rating: 4.8, hearts: 285, description: 'Crispy golden fried whole chicken', image: ChickenChargha, special: true, price: '₹200' },
+    { id: 1, title: 'Kebab', rating: 4.5, hearts: 105, description: 'Juicy grilled meat with authentic spices', image: Kebab, popular: true, price: '399' },
+    { id: 2, title: 'Chicken Tikka', rating: 5.0, hearts: 155, description: 'Tender chicken marinated in sauce', image: ChickenTikka, bestseller: true, price: '599' },
+    { id: 3, title: 'Desi Chowmein', rating: 4.2, hearts: 85, description: 'Spicy Asian noodles with a local twist', image: DesiChowmein, price: '299' },
+    { id: 4, title: 'Chicken Chargha', rating: 4.8, hearts: 285, description: 'Crispy golden fried whole chicken', image: ChickenChargha, special: true, price: '399' },
 ];
 export const additionalData = [
-    { id: 5, title: 'Paneer Tikka', rating: 4.8, hearts: 210, description: 'Cottage cheese marinated in spices', image: PaneerTikka, popular: true, price: '₹220' },
-    { id: 6, title: 'Masala Dosa', rating: 4.5, hearts: 165, description: 'Crispy rice crepe with potato filling', image: MasalaDosa, price: '₹180' },
-    { id: 7, title: 'Palak Paneer', rating: 4.7, hearts: 190, description: 'Spinach curry with cottage cheese', image: PalakPaneer, price: '₹200' },
-    { id: 8, title: 'Gulab Jamun', rating: 4.9, hearts: 275, description: 'Golden dumplings in rose syrup', image: GulabJamun, special: true, price: '₹30' },
+    { id: 5, title: 'Paneer Tikka', rating: 4.8, hearts: 210, description: 'Cottage cheese marinated in spices', image: PaneerTikka, popular: true, price: '220' },
+    { id: 6, title: 'Masala Dosa', rating: 4.5, hearts: 165, description: 'Crispy rice crepe with potato filling', image: MasalaDosa, price: '180' },
+    { id: 7, title: 'Palak Paneer', rating: 4.7, hearts: 190, description: 'Spinach curry with cottage cheese', image: PalakPaneer, price: '200' },
+    { id: 8, title: 'Gulab Jamun', rating: 4.9, hearts: 275, description: 'Golden dumplings in rose syrup', image: GulabJamun, special: true, price: '90' },
 ];
 
 // FOOTER 
 export const socialIcons = [
-    { icon: FaFacebook, link: 'https://www.facebook.com/share/1AHPnU8nDH/', color: '#3b5998', label: 'Facebook' },
+    { icon: FaFacebook, link: 'https://www.facebook.com/share/1DjbwhdR4z/', color: '#3b5998', label: 'Facebook' },
     { icon: FaInstagram, link: 'https://www.instagram.com/_kxr_thii_/', color: '#E1306C', label: 'Instagram' },
-    { icon: FaXTwitter, link: 'https://x.com/Karthi_kk_chllm', color: '#000', label: 'X' },
+    { icon: FaXTwitter, link: 'https://x.com/HexagonDService?t=Vv5ReZAIbXONqkq_O0ksWQ&s=09', color: '#000', label: 'X' },
     { icon: FaYoutube, link: 'https://www.youtube.com/@freefirestaustamil9594', color: '#FF0000', label: 'Youtube' },
 ];
 
